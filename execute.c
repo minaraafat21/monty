@@ -2,23 +2,23 @@
 
 /**
  * exe - reads and executes opcodes from a file
- * @stack: pointer to the top of the stack
+ * @stack: pointer top element of stack
  */
 void exe(stack_t **stack)
 {
-	char *opcode = NULL;
+	char *monty_command = NULL;
 	size_t len = 0;
 	ssize_t nread;
-	unsigned int line_number = 0;
+	unsigned int lineNUm = 0;
 
 	while ((nread = getline(&global.line, &len, global.file)) != -1)
 	{
-		line_number++;
-		opcode = strtok(global.line, " \t\r\n\a");
+		lineNUm++;
+		monty_command = strtok(global.line, " \t\r\n\a");
 		global.arg = strtok(NULL, " \n\t");
-		if (opcode == NULL || *opcode == '#')
+		if (monty_command == NULL || *monty_command == '#')
 			continue;
-		execute_opcode(opcode, stack, line_number);
+		execute_opcode(monty_command, stack, lineNUm);
 	}
 }
 
@@ -33,8 +33,8 @@ void execute_opcode(char *opcode, stack_t **stack, unsigned int line_number)
 	instruction_t instructions[] = {
 		{"push", myPush},
 		{"pall", myPall},
-		/*{"pint", op_pint},
-		{"pop", op_pop},
+		{"pint", myPint},
+		/*{"pop", op_pop},
 		{"swap", op_swap},
 		{"nop", op_nop},
 		{"add", op_add},

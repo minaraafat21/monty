@@ -11,23 +11,6 @@
 #include <fcntl.h>
 
 /**
- * struct global_s - variables -> args, file, line content
- * @arg: value
- * @line: input line content
- * @file: pointer to monty file
- *
- * Description: variables that carries values through the program
- */
-typedef struct global_s
-{
-	char *arg;
-	FILE *file;
-	char *line;
-} glob_t;
-
-extern glob_t global;
-
-/**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
  * @prev: points to the previous element of the stack (or queue)
@@ -57,13 +40,29 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/* Function prototypes */
+/**
+ * struct global_s - global
+ * @arg: value
+ * @line: input line content
+ * @file: pointer to monty file
+ *
+ * Description: variables that carries values through the program
+ */
+typedef struct global_s
+{
+	char *arg;
+	FILE *file;
+	char *line;
+} glob_t;
+
+extern glob_t global;
+
 void exe(stack_t **stack);
 void execute_opcode(char *opcode, stack_t **stack, unsigned int line_number);
 
 void myPush(stack_t **stack, unsigned int line_number);
 void myPall(stack_t **stack, unsigned int line_number);
-void op_pint(stack_t **stack, unsigned int line_number);
+void myPint(stack_t **stack, unsigned int line_number);
 void op_pop(stack_t **stack, unsigned int line_number);
 void op_swap(stack_t **stack, unsigned int line_number);
 void op_add(stack_t **stack, unsigned int line_number);
@@ -80,4 +79,4 @@ stack_t *add_node(stack_t **stack, const int n);
 int is_number(char *str);
 void free_stack(stack_t *stack);
 
-#endif /* monty.h */
+#endif
