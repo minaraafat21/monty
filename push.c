@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * op_push - pushes an element onto the stack
+ * myPush - pushes an element onto the stack
  * @stack: pointer to the top of the stack
  * @line_number: current line number of the opcode in the Monty file
  */
