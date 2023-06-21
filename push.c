@@ -62,10 +62,9 @@ void myPall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current = *stack;
 
-	while (current != NULL)
+	for (; current != NULL; current = current->next)
 	{
 		printf("%d\n", current->n);
-		current = current->next;
 		(void)line_number;
 	}
 
