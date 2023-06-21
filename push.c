@@ -9,22 +9,22 @@ void op_push(stack_t **stack, unsigned int line_number)
 {
 	int n;
 
-	if (glob.arg == NULL || !is_number(glob.arg))
+	if (global.arg == NULL || !is_number(global.arg))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		free_stack(*stack);
-		fclose(glob.file);
-		free(glob.line);
+		fclose(global.file);
+		free(global.line);
 		exit(EXIT_FAILURE);
 	}
 
-	n = atoi(glob.arg);
+	n = atoi(global.arg);
 	if (add_node(stack, n) == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		free_stack(*stack);
-		fclose(glob.file);
-		free(glob.line);
+		fclose(global.file);
+		free(global.line);
 		exit(EXIT_FAILURE);
 	}
 }

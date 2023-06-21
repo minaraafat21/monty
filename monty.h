@@ -25,7 +25,7 @@ typedef struct global_s
 	char *line;
 } glob_t;
 
-extern glob_t glob;
+extern glob_t global;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
