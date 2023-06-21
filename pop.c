@@ -1,24 +1,25 @@
 #include "monty.h"
 
 /**
- * myPop - removes element on top of the stack
- * @stack: pointer to top
- * @line_number: line number of the opcode
- **/
-void myPop(stack_t **stack, unsigned int line_number)
+ * myPop - removes the top element of the stack
+ * @customStack: pointer to the top of the stack
+ * @lineNum: line number of the opcode
+ */
+void myPop(stack_t **customStack, unsigned int lineNum)
 {
-	stack_t *temp;
+	stack_t *tempStack;
 
-	if (*stack == NULL)
+	if (*customStack == NULL)
 	{
-		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		fprintf(stderr, "L%d: unable to pop from an empty stack\n", lineNum);
 		free(global.line);
-		loop_free(*stack);
+		loop_free(*customStack);
 		exit(EXIT_FAILURE);
 	}
-	temp = (*stack)->next;
-	free(*stack);
-	*stack = temp;
-	if (*stack != NULL)
-		(*stack)->prev = NULL;
+
+	tempStack = (*customStack)->next;
+	free(*customStack);
+	*customStack = tempStack;
+	if (*customStack != NULL)
+		(*customStack)->prev = NULL;
 }
