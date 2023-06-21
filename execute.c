@@ -11,14 +11,15 @@ void exe(stack_t **stack)
 	ssize_t nread;
 	unsigned int lineNUm = 0;
 
-	for (lineNUm = 0; (nread = getline(&global.line, &len, global.file)) != -1; lineNUm++)
-{
-    monty_command = strtok(global.line, " \t\r\n\a");
-    global.arg = strtok(NULL, " \n\t");
-    if (monty_command == NULL || *monty_command == '#')
-        continue;
-    execute_opcode(monty_command, stack, lineNUm);
-}
+	while ((nread = getline(&global.line, &len, global.file)) != -1)
+	{
+		lineNUm++;
+		monty_command = strtok(global.line, " \t\r\n\a");
+		global.arg = strtok(NULL, " \n\t");
+		if (monty_command == NULL || *monty_command == '#')
+			continue;
+		execute_opcode(monty_command, stack, lineNUm);
+	}
 }
 
 /**
