@@ -12,7 +12,7 @@ void myPush(stack_t **stack, unsigned int line_number)
 	if (global.arg == NULL || !is_num(global.arg))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		free_stack(*stack);
+		loop_free(*stack);
 		fclose(global.file);
 		free(global.line);
 		exit(EXIT_FAILURE);
@@ -22,7 +22,7 @@ void myPush(stack_t **stack, unsigned int line_number)
 	if (add_node(stack, n) == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		free_stack(*stack);
+		loop_free(*stack);
 		fclose(global.file);
 		free(global.line);
 		exit(EXIT_FAILURE);

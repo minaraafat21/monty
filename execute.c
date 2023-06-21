@@ -52,7 +52,7 @@ while (instructions[i].opcode != NULL)
 }
 
 	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
-	free_stack(*stack);
+	loop_free(*stack);
 	fclose(global.file);
 	free(global.line);
 	exit(EXIT_FAILURE);

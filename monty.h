@@ -70,6 +70,6 @@ void myAdd(stack_t **stack, unsigned int line_number);
 void myNop(stack_t **stack, unsigned int line_number);
 stack_t *add_node(stack_t **stack, const int n);
 int is_num(char *str);
-void free_stack(stack_t *stack);
+void loop_free(stack_t *stack);
 
 #endif

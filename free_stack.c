@@ -1,10 +1,10 @@
 #include "monty.h"
 
 /**
- * free_stack - frees a stack_t list
+ * loop_free - frees a stack_t list
  * @stack: pointer to the top of the stack
  */
-void free_stack(stack_t *stack)
+void loop_free(stack_t *stack)
 {
 	stack_t *current;
 
