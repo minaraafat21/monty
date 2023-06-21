@@ -66,7 +66,7 @@ void myPint(stack_t **stack, unsigned int line_number);
 void myPop(stack_t **stack, unsigned int line_number);
 void mySwap(stack_t **stack, unsigned int line_number);
 void myAdd(stack_t **stack, unsigned int line_number);
-void op_nop(stack_t **stack, unsigned int line_number);
+void myNop(stack_t **stack, unsigned int line_number);
 void op_sub(stack_t **stack, unsigned int line_number);
 void op_div(stack_t **stack, unsigned int line_number);
 void op_mul(stack_t **stack, unsigned int line_number);
