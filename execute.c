@@ -11,20 +11,19 @@ void exe(stack_t **stack)
 	ssize_t nread;
 	unsigned int lineNUm = 0;
 
-	while ((nread = getline(&global.line, &len, global.file)) != -1)
-	{
-		lineNUm++;
-		monty_command = strtok(global.line, " \t\r\n\a");
-		global.arg = strtok(NULL, " \n\t");
-		if (monty_command == NULL || *monty_command == '#')
-			continue;
-		execute_opcode(monty_command, stack, lineNUm);
-	}
+	for (lineNUm = 0; (nread = getline(&global.line, &len, global.file)) != -1; lineNUm++)
+{
+    monty_command = strtok(global.line, " \t\r\n\a");
+    global.arg = strtok(NULL, " \n\t");
+    if (monty_command == NULL || *monty_command == '#')
+        continue;
+    execute_opcode(monty_command, stack, lineNUm);
+}
 }
 
 /**
- * execute_opcode - executes a single opcode
- * @opcode: opcode to execute
+ * execute_opcode - execute the original opcode
+ * @opcode: opcode
  * @stack: pointer to the top of the stack
  * @line_number: line number of the opcode
  */
