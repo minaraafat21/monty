@@ -5,7 +5,7 @@
  * @stack: pointer to the top of the stack
  * @line_number: line number of the opcode
  **/
-void mmyPop(stack_t **stack, unsigned int line_number)
+void myPop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;
 
