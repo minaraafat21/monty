@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	execute_file(&stack);
+	exe(&stack);
 	fclose(global.file);
 	free(global.line);
 	free_stack(stack);
