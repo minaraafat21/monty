@@ -5,7 +5,7 @@
  * @stack: pointer to the top of the stack
  * @line_number: current line number of the opcode in the Monty file
  */
-void op_push(stack_t **stack, unsigned int line_number)
+void myPush(stack_t **stack, unsigned int line_number)
 {
 	int n;
 

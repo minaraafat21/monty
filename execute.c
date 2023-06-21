@@ -31,8 +31,8 @@ void execute_file(stack_t **stack)
 void execute_opcode(char *opcode, stack_t **stack, unsigned int line_number)
 {
 	instruction_t instructions[] = {
-		{"push", op_push},
-		{"pall", op_pall},
+		{"push", myPush},
+		{"pall", myPall},
 		/*{"pint", op_pint},
 		{"pop", op_pop},
 		{"swap", op_swap},
