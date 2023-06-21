@@ -38,25 +38,18 @@ void execute_opcode(char *opcode, stack_t **stack, unsigned int line_number)
 		{"swap", mySwap},
 		{"add", myAdd},
 		{"nop", myNop},
-		/*
-		*{"sub", op_sub},
-		*{"div", op_div},
-		*{"mul", op_mul},
-		*{"mod", op_mod},
-		*{"pchar", op_pchar},
-		*{"pstr", op_pstr},
-		*/
 		{NULL, NULL}
 	};
 	int i;
 
-	for (i = 0; instructions[i].opcode != NULL; i++)
+	while (instructions[i].opcode != NULL)
 	{
 		if (strcmp(opcode, instructions[i].opcode) == 0)
 		{
 			instructions[i].f(stack, line_number);
 			return;
 		}
+		i++;
 	}
 
 	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
