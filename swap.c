@@ -2,29 +2,29 @@
 
 /**
  * mySwap - swaps the first 2 elements
- * @stack: pointer to top
- * @line_number: line number of the opcode
+ * @customStack: pointer to top
+ * @customLineNum: line number of the opcode
 */
-void mySwap(stack_t **stack, unsigned int line_number)
+void mySwap(stack_t **customStack, unsigned int customLineNum)
 {
-	stack_t *temp;
+	stack_t *tempNode;
 
-	if (*stack == NULL || (*stack)->next == NULL)
+	if (*customStack == NULL || (*customStack)->next == NULL)
 	{
-		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't swap, stack too short\n", customLineNum);
 		free(global.line);
-		loop_free(*stack);
+		loop_free(*customStack);
 		exit(EXIT_FAILURE);
 	}
 
-	temp = (*stack)->next;
-	(*stack)->next = temp->next;
+	tempNode = (*customStack)->next;
+	(*customStack)->next = tempNode->next;
 
-	if (temp->next != NULL)
+	if (tempNode->next != NULL)
+		tempNode->next->prev = *customStack;
 
-	temp->next->prev = *stack;
-	temp->prev = NULL;
-	temp->next = *stack;
-	(*stack)->prev = temp;
-	*stack = temp;
+	tempNode->prev = NULL;
+	tempNode->next = *customStack;
+	(*customStack)->prev = tempNode;
+	*customStack = tempNode;
 }
