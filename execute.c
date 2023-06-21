@@ -40,17 +40,15 @@ void execute_opcode(char *opcode, stack_t **stack, unsigned int line_number)
 		{"nop", myNop},
 		{NULL, NULL}
 	};
-	/*int i;*/
-
 	int i = 0;
 while (instructions[i].opcode != NULL)
 {
-    if (strcmp(opcode, instructions[i].opcode) == 0)
-    {
-        instructions[i].f(stack, line_number);
-        return;
-    }
-    i++;
+	if (strcmp(opcode, instructions[i].opcode) == 0)
+	{
+		instructions[i].f(stack, line_number);
+		return;
+	}
+	i++;
 }
 
 	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
