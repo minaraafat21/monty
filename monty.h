@@ -64,7 +64,7 @@ void myPush(stack_t **stack, unsigned int line_number);
 void myPall(stack_t **stack, unsigned int line_number);
 void myPint(stack_t **stack, unsigned int line_number);
 void myPop(stack_t **stack, unsigned int line_number);
-void op_swap(stack_t **stack, unsigned int line_number);
+void mySwap(stack_t **stack, unsigned int line_number);
 void op_add(stack_t **stack, unsigned int line_number);
 void op_nop(stack_t **stack, unsigned int line_number);
 void op_sub(stack_t **stack, unsigned int line_number);

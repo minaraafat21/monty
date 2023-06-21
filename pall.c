@@ -2,7 +2,7 @@
 
 /**
  * myPall - prints all values on the stack
- * @stack: pointer to the top of the stack
+ * @stack: pointer to top
  * @line_number: line number of the opcode
  */
 void myPall(stack_t **stack, unsigned int line_number)
