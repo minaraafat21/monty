@@ -1,19 +1,19 @@
 #include "monty.h"
 
 /**
- * myPint - prints the top element
- * @stack: pointer to the top of the stack
- * @line_number: line number of the opcode
+ * myPint -  prints the value at the top of the stack, followed by a new line.
+ * @custom_stack: pointer to the top element
+ * @custom_line_number: line number of the opcode
 */
-void myPint(stack_t **stack, unsigned int line_number)
+void myPint(stack_t **custom_stack, unsigned int custom_line_number)
 {
-	if (*stack == NULL)
+	if (*custom_stack == NULL)
 	{
-		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", custom_line_number);
 		free(global.line);
-		free_stack(*stack);
+		free_stack(*custom_stack);
 		exit(EXIT_FAILURE);
 	}
 
-	printf("%d\n", (*stack)->n);
+	printf("%d\n", (*custom_stack)->n);
 }

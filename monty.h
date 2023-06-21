@@ -50,9 +50,10 @@ typedef struct instruction_s
  */
 typedef struct global_s
 {
-	char *arg;
 	FILE *file;
 	char *line;
+	char *arg;
+
 } glob_t;
 
 extern glob_t global;
